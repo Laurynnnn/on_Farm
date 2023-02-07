@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class addpost extends addpost {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const addpost({Key? key}) : super(key: key);
 
   @override
-  addpostState createState() => addpostState();
+  addpostState createState() => _addpostState();
 }
 
 class _addpostState extends State<addpostState> {
