@@ -4,14 +4,14 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageWidget extends StatefulWidget {
+class addpost extends addpost {
   const HomePageWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  addpostState createState() => addpostState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _addpostState extends State<addpostState> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
