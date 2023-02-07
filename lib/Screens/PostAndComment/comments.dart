@@ -8,14 +8,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+class commments extends comments {
+  const comments({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _commentsState createState() => _commentsState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget>
+class _commentsState extends State<comments>
     with TickerProviderStateMixin {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
