@@ -1,4 +1,3 @@
-
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -8,14 +7,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class commments extends comments {
-  const comments({Key? key}) : super(key: key);
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
-  _commentsState createState() => _commentsState();
+  _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _commentsState extends State<comments>
+class _HomePageWidgetState extends State<HomePageWidget>
     with TickerProviderStateMixin {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
