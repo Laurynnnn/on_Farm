@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 import '../Drawer/SideMenu.dart';
+import '../Home/home.dart';
+import '../Profile/Profile.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}): super(key: key);
@@ -16,7 +18,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
         drawer: const SideMenu(),
         appBar: AppBar(
-        title: const Text("More",
+        title: const Text("Login",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         elevation: 0.5,
@@ -55,24 +57,33 @@ class _LoginState extends State<Login> {
           child: Form(
             child: Column(
               children: <Widget>[
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your username',
-                  ),
+                TextFormField(  
+                  decoration: const InputDecoration(  
+                  icon: Icon(Icons.person),  
+                  hintText: 'Enter your username',  
+                  labelText: 'Username',  
+                  ),  
                 ),
                 const SizedBox(height: 16.0),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your password',
-                  ),
-                  obscureText: true,
+                TextFormField(  
+                  decoration: const InputDecoration(  
+                  icon: Icon(Icons.password),  
+                  hintText: 'Enter your password',  
+                  labelText: 'Password',  
+                  ),  
                 ),
                 const SizedBox(height: 16.0),
                 MaterialButton(
-                  child: const Text('Submit'),
+                  child: const Text('LOGIN',
+                  style: TextStyle(
+                  fontSize: 20, 
+                  color: Color.fromARGB(255, 52, 153, 1),
+                  fontWeight: FontWeight.bold,
+                ),),
                   onPressed: () {
-                    // Add code to handle form submission
-                  },
+            // Navigate to second route when tapped.
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()),);
+          },
                 ),
               ],
             ),

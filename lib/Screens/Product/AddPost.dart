@@ -63,227 +63,88 @@ class _AddPostState extends State<AddPost> {
           )
         ],
       ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 350,
-                decoration: const BoxDecoration(
-                  color: Colors.amberAccent,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(0),
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
-                  ),
+       body: const MyCustomForm(),  
+      );  
+  }  
+}  
+// Create a Form widget.  
+class MyCustomForm extends StatefulWidget {
+  const MyCustomForm({super.key});
+  
+  @override  
+  MyCustomFormState createState() {  
+    return MyCustomFormState();  
+  }  
+}  
+// Create a corresponding State class. This class holds data related to the form.  
+class MyCustomFormState extends State<MyCustomForm> {  
+  // Create a global key that uniquely identifies the Form widget  
+  // and allows validation of the form.  
+  final _formKey = GlobalKey<FormState>();  
+  
+  @override  
+  Widget build(BuildContext context) {  
+    // Build a Form widget using the _formKey created above.  
+    return Form(  
+      key: _formKey,  
+      child: Column(  
+        crossAxisAlignment: CrossAxisAlignment.start,  
+        children: <Widget>[  
+          TextFormField(  
+            decoration: const InputDecoration(  
+              icon: Icon(Icons.label),  
+              hintText: 'Enter name of product',  
+              labelText: 'Product Name',  
+            ),  
+          ), 
+          TextFormField(  
+            decoration: const InputDecoration(  
+              icon: Icon(Icons.production_quantity_limits),  
+              hintText: 'Enter quantity available',  
+              labelText: 'Quantity Available',  
+            ),  
+          ), 
+          TextFormField(  
+            decoration: const InputDecoration(  
+            icon: Icon(Icons.description_outlined),  
+            hintText: 'Enter brief decription of product',  
+            labelText: 'Description',  
+            ),  
+           ), 
+          TextFormField(  
+            decoration: const InputDecoration(  
+              icon: Icon(Icons.phone),  
+              hintText: 'Enter a phone number',  
+              labelText: 'Phone Contact',  
+            ),  
+          ),  
+          TextFormField(  
+            decoration: const InputDecoration(  
+            icon: Icon(Icons.location_city_outlined),  
+            hintText: 'Enter location of product',  
+            labelText: 'Location',  
+            ),  
+           ),  
+          Container(  
+              padding: const EdgeInsets.only(left: 150.0, top: 40.0),  
+              
+              child: ElevatedButton(
+          child: const Text('Submit',
+          style: TextStyle(
+                  fontSize: 20, 
+                  color: Color.fromARGB(255, 244, 245, 243),
+                  fontWeight: FontWeight.bold,
                 ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(20, 8, 20, 0),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Divider(
-                                  thickness: 3,
-                                  indent: 150,
-                                  endIndent: 150,
-                                  color: Colors.blueAccent,
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    const Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 16, 0),
-                                        child: Text(
-                                          'add post',
-                                          // style: FlutterFlowTheme.of(context)
-                                          //     .title2,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    const Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          'you can add your produce here',
-                                          // style: FlutterFlowTheme.of(context)
-                                          //     .bodyText2,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 16, 0, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFFDBE2E7),
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: Image.asset(
-                                              'assets/images/addImage@2x.png',
-                                            ).image,
-                                          ),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4, 4, 4, 4),
-                                              child: Container(
-                                                width: 120,
-                                                height: 120,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.network(
-                                                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment:
-                                                  const AlignmentDirectional(0, 0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(4, 4, 4, 4),
-                                                child: Container(
-                                                  width: 120,
-                                                  height: 120,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: const BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment:
-                                                  const AlignmentDirectional(0, 0),
-                                              child: Image.network(
-                                                'https://picsum.photos/seed/928/600',
-                                                width: 100,
-                                                height: 100,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 24, 0, 44),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      MaterialButton(
-                                        onPressed: () async {},
-                                        child: const Text(
-                                          'Upload Image',
-                                          // width: 150,
-                                          // height: 50,
-                                          // color: Color(0xFF3F7934),
-                                          style: TextStyle(
-                                             fontFamily: 'Poppins',
-                                              color:
-                                                    Colors.lightBlueAccent,
-                                        ) 
-
-                                          ),
-                                               
-                                              ),
-                                          // elevation: 2,
-                                          // borderSide: const BorderSide(
-                                          //   color: Colors.transparent,
-                                          //   width: 1,
-                                          // ),
-                                    ],
-                                  ),
-                                      ),
-                                      MaterialButton(
-                                        onPressed: () {
-                                          // ignore: avoid_print
-                                          print('Button pressed ...');
-                                        },
-                                        child: const Text(
-                                          'Save Changes',
-                                
-                                          // width: 150,
-                                          // height: 50,
-                                          // color: const Color(0xFF3F7934),
-                                          style: TextStyle(
-                                            fontFamily: 'Lexend Deca',
-                                                    color: Colors.white,
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-
-                                          ),
-                                              
-                                          // elevation: 2,
-                                          // borderSide: BorderSide(
-                                          //   color: Colors.transparent,
-                                          //   width: 1,
-                                          // ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              
-                            ),
-                          ),
-                    ],
-                        ),
-                  ),
-                )
-            ],
+                ),
+          onPressed: () {
+            // Navigate to second route when tapped.
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const AddPost()),);
+          },
+              ),  
           ),
-        ),
-      ),
+        ],
 
-              );
+      ),
+    );
   }
 }

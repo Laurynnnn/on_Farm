@@ -169,7 +169,15 @@ class _HomeState extends State<Home> {
                     child: const Text( '5', style: TextStyle(color: Colors.white, fontSize: 8,), textAlign: TextAlign.center,),
                   ),
                 ),
-                const Icon(Icons.login_outlined),
+              
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only( top: 16, right: 16,),
+            child: Stack(
+              children: <Widget>[
+                const Icon(Icons.person),
                 Positioned(
                   right: 0,
                   child: Container(
@@ -177,49 +185,20 @@ class _HomeState extends State<Home> {
                     decoration: BoxDecoration( color: Colors.black, borderRadius: BorderRadius.circular(6),),
                     constraints: const BoxConstraints( minWidth: 12, minHeight: 12, ),
                     // child: const Text( '5', style: TextStyle(color: Colors.white, fontSize: 8,), textAlign: TextAlign.center,),
-                    child: MaterialButton(
-                      onPressed: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const Login(),
-                                      ),
-                                    );
-                                  },
-                    )
-                  ),
-                )
+                    child: ListView(
+                      prototypeItem: ListTile(
+                    
+                    onTap: () => {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login()))
+                    },
+                    ),
+                    ),
+                    
+                ),
+                ),
               ],
             ),
-          ),
-          // Container(
-          //   margin: const EdgeInsets.only( top: 16, right: 16,),
-          //   child: Stack(
-          //     children: <Widget>[
-          //       const Icon(Icons.login_outlined),
-          //       Positioned(
-          //         right: 1,
-          //         child: Container(
-          //           padding: const EdgeInsets.all(1),
-          //           decoration: BoxDecoration( color: Colors.black, borderRadius: BorderRadius.circular(6),),
-          //           constraints: const BoxConstraints( minWidth: 12, minHeight: 12, ),
-          //           child: const Text( '5', style: TextStyle(color: Colors.white, fontSize: 8,), textAlign: TextAlign.center,),
-          //           child: ListView(
-          //             prototypeItem: ListTile(
-          //           // leading: const Icon(Icons.mooutlined),
-          //           // title: const Text('More'),
-          //           onTap: () => {
-          //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login()))
-          //           },
-          //           ),
-          //           ),
-                    
-          //       ),
-          //       ),
-          //     ],
-          //   ),
-          // )
+          )
         ],
       ),
         body: SafeArea(
@@ -241,16 +220,20 @@ class _HomeState extends State<Home> {
                     border: OutlineInputBorder(
                       borderRadius:BorderRadius.circular(5.0),
                       borderSide: BorderSide.none,
+                      gapPadding: 0,
                     ),
                   ),
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 Container(
                   
                   width: double.infinity,
-                  height: 200,
+                  height: 80,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 42, 141, 0),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(5.0),
 
                   ),
                   child: Row(
@@ -259,9 +242,8 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            padding: const EdgeInsets.only(
-                              left: 20,
-                            ),
+                            padding: const EdgeInsets.all(5.0),
+                            // margin: const EdgeInsets.all(10.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               // ignore: prefer_const_literals_to_create_immutables
@@ -275,37 +257,16 @@ class _HomeState extends State<Home> {
                                 ),
                                 const Text('Sell and buy products of your choice.',
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                
                                 ),
                               ],
                             ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                const Text('Reach out directly to the owner.',
-                                style: TextStyle(
-                                 color: Color.fromARGB(221, 253, 251, 251),
-
-                                  ),
-                                ),
-                                const Text('Negotions are between clients.',
-                                style: TextStyle(
-                                 color: Color.fromARGB(227, 249, 248, 248),
-                                 
-                                  ),
-                                ),
-
-                              ]
-                            ),
-                          
+                            const Divider(
+                      color: Color.fromARGB(255, 83, 82, 82),
+                    ),   
                         ]
                       ),
                     ]
@@ -315,7 +276,7 @@ class _HomeState extends State<Home> {
               ),  
               ),
               Container(
-                height: 200,
+                height: 250,
                 width: 200,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -325,41 +286,12 @@ class _HomeState extends State<Home> {
                       ),
                   ),
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+                    topRight: Radius.circular(1.0),
+                    bottomRight: Radius.circular(1.0),
                   )
                 )
                 ,
               ),
-              Container(
-                color: const Color.fromARGB(255, 249, 249, 249),
-                child: Column(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            _categories(
-                              name: 'Advertising',
-                            ),
-                             _categories(
-                              name: 'Chating',
-                            ),
-                             _categories(
-                              name: 'Weather Information',
-                            ),
-                             _categories(
-                              name: 'Feed',
-                            ),
-                             
-                          ],
-                        ),
-                      ),
-                    ),
                     const Divider(
                       color: Color.fromARGB(255, 83, 82, 82),
 
@@ -424,12 +356,8 @@ class _HomeState extends State<Home> {
                       ),
 
                 ],)
-              )
-            ],
-
-          ), 
-        ),
-        
+              ),
     );
+        
   }
 }

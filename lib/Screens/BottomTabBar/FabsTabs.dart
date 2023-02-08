@@ -6,6 +6,7 @@ import 'package:on_farm/Screens/Chat/Chat.dart';
 import 'package:on_farm/Screens/Product/AddPost.dart';
 
 import '../Home/home.dart';
+import '../Login/Login.dart';
 
 // ignore: must_be_immutable
 class FabsTabs extends StatefulWidget {
@@ -46,7 +47,7 @@ class _FabsTabsState extends State<FabsTabs> {
   final PageStorageBucket bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
-    Widget currentScreen = currentIndex == 0? const Home(): currentIndex == 1? const More(): currentIndex == 2? const Chat(): currentIndex == 4? const AddPost(): const Profile();
+    Widget currentScreen = currentIndex == 0? const Home(): currentIndex == 1? const Login(): currentIndex == 2? const Chat(): currentIndex == 4? const AddPost(): const Profile();
     return Scaffold(
         
         body: PageStorage(
@@ -105,7 +106,7 @@ class _FabsTabsState extends State<FabsTabs> {
                   minWidth: 50,
                   onPressed: (){
                     setState(() {
-                      currentScreen = const More();
+                      currentScreen = const Login();
                       currentIndex = 1;
                     });
                   }, 

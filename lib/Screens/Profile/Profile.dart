@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../Drawer/SideMenu.dart';
+import '../Login/Login.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}): super(key: key);
@@ -141,14 +142,36 @@ class _ProfileState extends State<Profile> {
                         )
                       ],
                     ),
-                  )
+                  ),
+
                 ],
               ),
+              
             ),
+            Container(  
+              padding: const EdgeInsets.only(left: 150.0, top: 570.0),  
+              
+              child: ElevatedButton(
+          child: const Text('Edit Profile',
+          style: TextStyle(
+                  fontSize: 20, 
+                  color: Color.fromARGB(255, 248, 250, 247),
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+          onPressed: () {
+            // Navigate to second route when tapped.
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Profile()),);
+          },
+              ),  
+          ),
+            
             
           ],
         ),
+        
       ),
+      
     );
   }
       
